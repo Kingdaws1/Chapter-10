@@ -3,8 +3,8 @@ public class MyInteger {
 
 	int value = 0;
 	
-	MyInteger(int newValue) {
-		value = newValue;
+	MyInteger(int value) {
+		this.value = value;
 	}
 	
 	public int getMyInteger() {
@@ -58,23 +58,17 @@ public class MyInteger {
 	}
 	
 	public static boolean isEven(MyInteger originalValue) {
-		String stringNumber = "";
-		stringNumber += originalValue;
-		int aValue = Integer.parseInt(stringNumber);
+		int aValue = originalValue.getMyInteger();
 		return((aValue % 2) == 0);
 	}
 	
 	public static boolean isOdd(MyInteger originalValue) {
-		String stringNumber = "";
-		stringNumber += originalValue;
-		int aValue = Integer.parseInt(stringNumber);
+		int aValue = originalValue.getMyInteger();
 		return((aValue % 2) != 0);
 	}
 	
 	public static boolean isPrime(MyInteger originalValue) {
-		String stringNumber = "";
-		stringNumber += originalValue;
-		int aValue = Integer.parseInt(stringNumber);
+		int aValue = originalValue.getMyInteger();
 		boolean isAPrimeNumber = true;
 		if (aValue > 0) {
 			for (int i = 1; i < aValue; i ++) {
@@ -94,14 +88,16 @@ public class MyInteger {
 	}
 	
 	public boolean equals(MyInteger newInteger) {
-		String stringInt = "";
-		stringInt += newInteger;
-		int newInt = Integer.valueOf(stringInt);
-		return(value == newInt);
+		int aValue = newInteger.getMyInteger();
+		return(value == aValue);
 	}
 	
 	public static int parseInt(char[] characterArray) {
-		int newInt = parseInt(characterArray);
+		String stringOfIntegers = "";
+		for (int i = 0; i < characterArray.length; i++) {
+			stringOfIntegers += characterArray[i];
+		}
+		int newInt = parseInt(stringOfIntegers);
 		return(newInt);
 	}
 	
